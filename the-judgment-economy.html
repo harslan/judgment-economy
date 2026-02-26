@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Judgment Economy — Hasan Arslan, Ph.D.</title>
+<meta name="description" content="Three Collapses, One Paradox, and the Most Human Skill of the Next Decade">
+<meta property="og:title" content="The Judgment Economy">
+<meta property="og:description" content="Three Collapses, One Paradox, and the Most Human Skill of the Next Decade — by Hasan Arslan, Ph.D.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://harslan.github.io/judgment-economy/">
+<meta property="og:image" content="https://harslan.github.io/judgment-economy/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Judgment Economy">
+<meta name="twitter:description" content="Three Collapses, One Paradox, and the Most Human Skill of the Next Decade">
+<meta name="twitter:image" content="https://harslan.github.io/judgment-economy/og-image.png">
+<meta name="author" content="Hasan Arslan, Ph.D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --accent: #3b6fa0;
+    --accent-light: #5a8fbf;
+    --text: #2d2d2d;
+    --text-mid: #555;
+    --text-light: #888;
+    --bg: #faf9f7;
+    --bg-warm: #f5f3ef;
+    --rule: #d4cfc7;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--serif);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.75;
+  }
+
+  /* ═══════ HERO ═══════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    background: linear-gradient(165deg, #0f1a2e 0%, #1a2744 40%, #243456 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(59,111,160,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(90,143,191,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+
+  .hero-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.3em;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent-light);
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 1.5rem auto 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+
+  .hero-author {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+
+  .hero-author span {
+    color: rgba(255,255,255,0.4);
+  }
+
+  .hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-light);
+    margin: 1.5rem auto;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-epigraph {
+    margin-top: 3.5rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    max-width: 460px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.2s forwards;
+  }
+
+  .hero-epigraph cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
+  }
+
+  .scroll-indicator::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent-light), transparent);
+    margin: 0 auto;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* ═══════ ARTICLE ═══════ */
+  .article {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+  }
+
+  .section-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-bottom: 1.8rem;
+    padding-top: 3.5rem;
+  }
+
+  .section-title:first-of-type {
+    padding-top: 0;
+  }
+
+  .article p {
+    margin-bottom: 1.3rem;
+    font-weight: 400;
+    font-size: 1.05rem;
+  }
+
+  .article p strong {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ═══════ COLLAPSE HEADINGS ═══════ */
+  .collapse-head {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ═══════ BLOCKQUOTES ═══════ */
+  blockquote {
+    margin: 2.2rem 0;
+    padding: 0.2rem 0 0.2rem 1.5rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  blockquote p {
+    font-style: italic;
+    color: var(--text-mid);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 0.4rem !important;
+  }
+
+  blockquote cite {
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+
+  /* ═══════ DIVIDER ═══════ */
+  .divider {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--rule);
+    font-size: 1rem;
+    letter-spacing: 1em;
+  }
+
+  /* ═══════ ABOUT ═══════ */
+  .about {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .about h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+  }
+
+  .about p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ═══════ FOOTER ═══════ */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--text-light);
+    background: var(--bg-warm);
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  /* ═══════ RESPONSIVE ═══════ */
+  @media (max-width: 600px) {
+    html { font-size: 16px; }
+    .hero { padding: 3rem 1.5rem; }
+    .article { padding: 3rem 1.5rem; }
+  }
+
+  /* ═══════ READING PROGRESS ═══════ */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 100;
+    transition: width 0.1s linear;
+    width: 0%;
+  }
+
+  /* ═══════ FADE IN SECTIONS ═══════ */
+  .article .fade-section {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .article .fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Essay</div>
+    <h1 class="hero-title">The <em>Judgment</em><br>Economy</h1>
+    <p class="hero-subtitle">Three Collapses, One Paradox, and the Most Human Skill of the Next Decade</p>
+    <div class="hero-rule"></div>
+    <p class="hero-author">Hasan Arslan, Ph.D. <span>&mdash; February 2026</span></p>
+    <div class="hero-epigraph">
+      &ldquo;Where is the wisdom we have lost in knowledge?<br>
+      Where is the knowledge we have lost in information?&rdquo;
+      <cite>&mdash; T.S. Eliot, Choruses from &lsquo;The Rock&rsquo; (1934)</cite>
+    </div>
+  </div>
+  <div class="scroll-indicator"></div>
+</header>
+
+<!-- ═══════ ARTICLE ═══════ -->
+<main class="article">
+
+  <div class="fade-section">
+  <h2 class="section-title"><span class="section-num">I.</span>The Crucible</h2>
+
+  <p>For six hundred years, the guild system operated on a simple bargain. The apprentice surrendered years&mdash;sometimes a decade&mdash;to the master, performing tasks that were tedious, repetitive, and seemingly beneath the skill they aspired to acquire. The carpenter&rsquo;s apprentice did not design furniture. He planed boards. He sharpened tools. He swept the shop floor. And somewhere in those thousands of hours of execution, something happened that no classroom could replicate: he developed judgment.</p>
+
+  <p>Aristotle had a name for this. In the sixth book of the <em>Nicomachean Ethics</em>, he distinguished <em>phronesis</em>&mdash;practical wisdom&mdash;from both <em>episteme</em> (theoretical knowledge) and <em>techne</em> (technical craft). Phronesis was, in his view, the highest form of applied human intelligence, and it had one essential characteristic: it could not be taught directly. It could only be cultivated through experience, through the slow accumulation of decisions made under uncertainty, through pattern recognition so deeply internalized that it no longer felt like reasoning at all. It felt like taste.</p>
+
+  <p>This was not a quaint artifact of ancient philosophy. It was, until very recently, the operating principle of every serious profession. Surgeons developed clinical judgment by performing surgeries. Engineers built architectural intuition by writing code and watching systems fail. Lawyers sharpened legal reasoning by arguing cases, not by reading about them. The execution was never merely the path to expertise. The execution was the crucible in which expertise was forged.</p>
+
+  <p>Alfred North Whitehead observed in <em>An Introduction to Mathematics</em> that &ldquo;civilization advances by extending the number of important operations which we can perform without thinking about them.&rdquo; Each wave of technology automated one layer of effort and freed humanity to operate at the next level of abstraction. The printing press automated the scribe. The calculator automated arithmetic. The compiler automated machine code. Each time, we ascended. Each time, the freed capacity was reinvested in higher-order thinking.</p>
+
+  <p>But every previous wave of automation moved at a speed that allowed human institutions to adapt. The apprenticeship path had time to reshape itself around each new tool. What is happening now is different&mdash;not in kind, but in velocity and scope.</p>
+  </div>
+
+  <div class="fade-section">
+  <h2 class="section-title"><span class="section-num">II.</span>The Threshold</h2>
+
+  <p>In late 2025, something shifted in the capabilities of AI coding agents&mdash;not gradually, in the way that technology usually improves, but abruptly. Models crossed a qualitative threshold in coherence, tenacity, and autonomous problem-solving that practitioners began describing not as progress, but as regime change.</p>
+
+  <p>The pattern was striking in its consistency. Complex engineering tasks that had required a weekend of skilled effort&mdash;configuring servers, deploying models, building interfaces, testing systems, debugging failures&mdash;began collapsing into thirty minutes of autonomous agent work. The agents didn&rsquo;t merely assist. They researched solutions, resolved roadblocks, wrote code, tested it, and delivered functioning systems with minimal human intervention.</p>
+
+  <p>The immediate instinct was to ask whether this spelled replacement&mdash;whether engineers would give way to &ldquo;prompters.&rdquo; But the practitioners closest to the shift reported something more nuanced and more consequential. Deep technical expertise, they found, was not becoming obsolete. It was becoming a force multiplier of unprecedented scale. The person who understood systems architecture, security implications, performance trade-offs, and edge cases could now apply that judgment across ten times more output than before. The expert wasn&rsquo;t being replaced. The expert was being leveraged in ways that had never been possible.</p>
+
+  <p>And yet something was also being lost&mdash;though it was harder to name. What the agents produced was the output of expertise. What they could not transmit was the process by which expertise had always been acquired. The weekend of wrestling with configuration errors, the slow education of debugging, the intuition built through encountering the same class of problem in a hundred variations&mdash;all of this had been compressed, bypassed, made unnecessary for the person directing the work.</p>
+
+  <p>What emerged from this shift was not one change, but three simultaneous collapses, each reinforcing the others, and together constituting a structural transformation in the nature of knowledge work.</p>
+  </div>
+
+  <div class="fade-section">
+  <h2 class="section-title"><span class="section-num">III.</span>Three Collapses</h2>
+
+  <h3 class="collapse-head">The Collapse of the Execution Premium</h3>
+
+  <p>For most of economic history, skilled execution was scarce and therefore valuable. The ability to do the thing&mdash;write the code, draft the contract, build the financial model, design the system&mdash;commanded premium compensation because it was hard to acquire and difficult to replicate. Entire professional identities and compensation structures were organized around execution excellence.</p>
+
+  <p>This is not the first time execution has been commoditized. The Industrial Revolution did precisely this to manual labor; the assembly line transformed master craftsmen into machine operators over the course of a generation. But there is a crucial difference in what is happening now. For the first time in history, it is cognitive execution&mdash;the work of thinking, designing, and building&mdash;that is being automated. And it is happening not over generations, but over months. The execution premium is not declining gradually. It is collapsing.</p>
+
+  <h3 class="collapse-head">The Collapse of the Knowledge Advantage</h3>
+
+  <p>The twentieth century was defined by the knowledge economy: the premise that what you know determines your economic value. Universities, professional certifications, graduate degrees, and continuing education programs all operated on this assumption. The more specialized your knowledge, the more you were worth.</p>
+
+  <p>This premise has been eroding for years. Search engines began the process; large language models are completing it. When an AI agent can access, synthesize, and apply the sum of documented human knowledge in seconds, the competitive value of possessing that knowledge diminishes. What persists as valuable is not what you know, but what you can judge&mdash;the ability to discern quality from plausibility, to recognize when an answer is subtly wrong, to understand implications that the data alone does not reveal, to hold competing considerations in mind and arrive at a wise course of action.</p>
+
+  <blockquote>
+    <p>&ldquo;We can know more than we can tell.&rdquo;</p>
+    <cite>&mdash; Michael Polanyi, <em>The Tacit Dimension</em> (1966)</cite>
+  </blockquote>
+
+  <p>Polanyi&rsquo;s insight cuts to the heart of the matter. The most consequential knowledge&mdash;the kind that separates the competent from the wise&mdash;is tacit. It resists explicit articulation. It lives in the hands of the surgeon, the intuition of the seasoned investor, the taste of the designer who can tell you that something is wrong with a layout but cannot fully explain why. This is precisely the knowledge that AI cannot replicate, and it is the knowledge that remains most valuable as everything around it becomes free.</p>
+
+  <h3 class="collapse-head">The Collapse of the Apprenticeship Path</h3>
+
+  <p>This is the most profound of the three collapses, and the least discussed.</p>
+
+  <p>If execution is how judgment was traditionally developed&mdash;if phronesis is cultivated through practice and not instruction&mdash;then what happens when the practice itself is delegated to machines?</p>
+
+  <p>The junior developer who once spent years writing code, encountering bugs, learning systems architecture from the inside out, and slowly building the intuition that would eventually make her a senior architect&mdash;that developer now supervises an agent that writes the code. The execution arrives complete. But the learning that was embedded in the act of executing may not.</p>
+
+  <p>In Plato&rsquo;s <em>Phaedrus</em>, Socrates tells the story of the Egyptian god Theuth, who presents the invention of writing to King Thamus as a gift that will improve memory and wisdom. Thamus is not persuaded. Writing, he warns, will produce forgetfulness in the minds of those who use it, because they will cease to exercise their memory from within. People will have access to vast stores of recorded knowledge but will not have internalized the understanding that comes from wrestling with ideas in their own minds. They will possess, in Thamus&rsquo;s words, the appearance of wisdom without its reality.</p>
+
+  <p>Twenty-four centuries later, the parallel is striking. AI agents give us access to vast stores of execution capability. But they may not transmit the judgment that was previously forged in the act of executing. We risk producing a generation that can direct intelligent systems with remarkable efficiency while lacking the wisdom to know whether the direction is sound.</p>
+  </div>
+
+  <div class="fade-section">
+  <h2 class="section-title"><span class="section-num">IV.</span>The Paradox of the Vanishing Path</h2>
+
+  <p>Here, then, is the central paradox of our moment.</p>
+
+  <p>The capabilities that matter most in an AI-augmented world&mdash;judgment, taste, ethical reasoning, the ability to recognize what &ldquo;good&rdquo; looks like&mdash;are precisely the capabilities that were traditionally developed through the execution work that AI is now automating. We need these capacities more urgently than ever. And we are dismantling the crucible in which they were forged.</p>
+
+  <p>This is not a technical problem awaiting a technical solution. It is a civilizational question. It will not be resolved by better prompting techniques, faster models, or more sophisticated agent architectures. It demands a fundamental rethinking of how we develop human capability&mdash;in our organizations, our educational institutions, and our understanding of what it means to become genuinely expert at something.</p>
+
+  <p>Every previous technological disruption created a version of this paradox, and every previous generation found a way through. The printing press did not, in the end, destroy memory&mdash;but it did transform how societies cultivated and transmitted knowledge. The calculator did not destroy mathematical reasoning&mdash;but it did force a rethinking of what mathematics education should emphasize. In each case, the resolution required not a return to the old methods, but the deliberate construction of new pathways to the old virtues.</p>
+
+  <p>That is the work before us now.</p>
+  </div>
+
+  <div class="fade-section">
+  <h2 class="section-title"><span class="section-num">V.</span>The Judgment Economy</h2>
+
+  <p>Every economic era is defined by its scarcest resource. The agrarian economy was structured around land. The industrial economy was structured around capital. The information economy was structured around data and specialized expertise. We are entering something new&mdash;an era defined not by what you know or what you can produce, but by what you can judge.</p>
+
+  <p>In the Judgment Economy, three capabilities determine value:</p>
+
+  <p>The first is <strong>discernment</strong>&mdash;the ability to evaluate quality, detect subtle errors, recognize when an output is almost right but dangerously wrong, and maintain standards that no automated system can set for itself. Discernment cannot be automated because it requires understanding what matters, and what matters is always a human question.</p>
+
+  <p>The second is <strong>decomposition</strong>&mdash;the ability to take complex, ambiguous, real-world problems and structure them into components that can be productively delegated to intelligent agents, while retaining the components that require human wisdom. This is not prompt engineering, though it is often confused with it. It is architectural thinking applied to human-AI collaboration, and it requires deep domain knowledge to perform well. The surgeon does not merely instruct a robotic system; she understands anatomy deeply enough to know which decisions the system can make and which it must not.</p>
+
+  <p>The third is <strong>accountability</strong>&mdash;the willingness and capacity to bear responsibility for outcomes produced by systems you have directed but not manually controlled. As agents grow more capable, the distance between human decision and final output will widen. Navigating that widening gap&mdash;maintaining genuine oversight rather than the mere appearance of it&mdash;requires a kind of moral seriousness that no tool can provide. The organizations that entrust consequential work to AI will need people who can hold that trust with integrity.</p>
+
+  <p>Discernment. Decomposition. Accountability. These are the pillars of the Judgment Economy. They are irreducibly human. They demand deep expertise. And they cannot be developed by reading about them. They must be practiced, under conditions that are real enough to matter and complex enough to develop genuine capability.</p>
+  </div>
+
+  <div class="fade-section">
+  <h2 class="section-title"><span class="section-num">VI.</span>The Question Before Us</h2>
+
+  <p>In <em>Future Shock</em>, Alvin Toffler advanced the idea that the illiterate of the coming century would not be those who could not read and write, but those who could not learn, unlearn, and relearn. We are now living in the fullest expression of that prediction. The capacity to unlearn a sixty-year-old paradigm of knowledge work&mdash;value as execution, expertise as information, competence as output&mdash;and to relearn a new paradigm built on judgment, orchestration, and moral accountability is not a competitive advantage. It is a survival requirement.</p>
+
+  <p>The institutions that matter most in the coming decade will be those that take the Judgment Paradox seriously and invest in solving it. Not by retreating from AI, but by deliberately constructing new pathways to the old virtues&mdash;new forms of apprenticeship, new modes of practice, new environments where human judgment can be developed even as the execution layer is automated. This is among the most important design challenges of our time.</p>
+
+  <p>The agents will continue to improve. The execution layer will continue to automate. The abstraction layers will continue to rise. This is the trajectory of civilization and has been since Whitehead named it over a century ago.</p>
+
+  <p>But each time we ascend a layer of abstraction, the demands on human judgment grow more consequential, not less. The architect bears more responsibility than the bricklayer. The general bears more than the foot soldier. And the person directing a fleet of intelligent agents across consequential domains bears a weight of judgment that no previous generation of professionals has been asked to carry.</p>
+
+  <blockquote>
+    <p>&ldquo;The test of a first-rate intelligence is the ability to hold two opposed ideas in the mind at the same time, and still retain the ability to function.&rdquo;</p>
+    <cite>&mdash; F. Scott Fitzgerald, &ldquo;The Crack-Up&rdquo; (1936)</cite>
+  </blockquote>
+
+  <p>This, too, is a form of judgment: the ability to hold the extraordinary promise and the genuine peril of this moment in the same frame, and to act wisely within the tension. AI is the most powerful tool humanity has ever built. The question has never been whether we will use it. The question is whether we will cultivate the wisdom to direct it well.</p>
+
+  <p>The era of execution is closing. The era of judgment has begun.</p>
+
+  <p>What we build next&mdash;in our classrooms, our organizations, our institutions, and ourselves&mdash;will determine whether that transition produces a flourishing or a hollowing out. The choice, for now, is still ours.</p>
+  </div>
+
+  <div class="divider">&bull;&bull;&bull;</div>
+
+  <div class="fade-section about">
+    <h3>About the Author</h3>
+    <p>Hasan Arslan, Ph.D., serves as Chief AI Officer and Associate Professor of Information Systems &amp; Operations Management at Suffolk University&rsquo;s Sawyer Business School. He leads the SAIL Collaborative (Social Intelligence, AI Literacy, Innovation, Leadership), which won the 2025 Eduventures Innovation Award and was featured in AACSB Insights. His research and practice focus on developing the judgment, ethical reasoning, and leadership capabilities that define AI-ready professionals.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p style="margin-bottom: 0.8rem;">
+    <a href="https://www.linkedin.com/in/hasan-arslan-b3b61a2/" style="color: var(--accent-light); text-decoration: none; margin: 0 0.8rem;">LinkedIn</a>
+    <span style="color: var(--rule);">&middot;</span>
+    <a href="https://x.com/harslan_ai" style="color: var(--accent-light); text-decoration: none; margin: 0 0.8rem;">X / Twitter</a>
+  </p>
+  <p>&copy; 2026 Hasan Arslan. All rights reserved.</p>
+</footer>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  });
+
+  // Fade in sections on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
